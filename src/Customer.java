@@ -10,17 +10,26 @@ public class Customer {
 
     public void inputCustomerData() {
         String fullName;
+        String firstName = "";
+        String lastName = "";
         for (int i = 0; i < customerNames.length; i++) {
-            String firstName = "";
-            String lastName = "";
+
             System.out.println("Enter the first name: " + (i+1) + "");
-            firstName = input.next();
-            if(firstName.equals("")) {
-                System.out.println("First name cannot be empty");
+            firstName = input.nextLine();
+            while(firstName.isEmpty()) {
+                System.out.println("First name cannot be empty"+ "\n");
+                System.out.println("Enter the last name: " + (i+1) + "");
+                firstName = input.nextLine();
+            }
+            System.out.println("Enter the last name: " + (i+1) + "");
+            lastName = input.nextLine();
+            while(lastName.isEmpty()) {
+                System.out.println("Last name cannot be empty"+ "\n");
+                System.out.println("Enter the last name: " + (i+1) + "");
+                lastName = input.nextLine();
             }
 
-
-
+            customerNames[i] = firstName + " " + lastName;
         }
 
         }
